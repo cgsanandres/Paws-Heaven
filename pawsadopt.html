@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Paws Haven | Adopt a Pet</title>
+
+<style>
+
+*{
+font-family:Arial;
+box-sizing:border-box;
+}
+
+body{
+margin:0;
+background:#FFF8F0;
+color:#4B3A2F;
+}
+
+/* NAVBAR */
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 30px;
+background:#7FB77E;
+color:white;
+flex-wrap:wrap;
+}
+
+.logo{
+font-size:22px;
+font-weight:bold;
+}
+
+.navlinks a{
+margin:0 10px;
+text-decoration:none;
+color:white;
+font-size:14px;
+cursor:pointer;
+}
+
+.navlinks a:hover{
+text-decoration:underline;
+}
+
+/* PAGE CONTAINER */
+
+.container{
+max-width:900px;
+margin:auto;
+padding:40px 20px;
+}
+
+/* FORM */
+
+.form-box{
+background:white;
+padding:35px;
+border-radius:10px;
+box-shadow:0 4px 15px rgba(0,0,0,0.15);
+}
+
+.form-box h2{
+color:#7FB77E;
+margin-bottom:10px;
+}
+
+.form-box p{
+font-size:14px;
+margin-bottom:20px;
+}
+
+input, select, textarea{
+width:100%;
+padding:12px;
+margin:10px 0;
+border-radius:6px;
+border:1px solid #ccc;
+font-size:14px;
+}
+
+textarea{
+resize:vertical;
+}
+
+button{
+margin-top:15px;
+padding:12px;
+border:none;
+background:#7FB77E;
+color:white;
+border-radius:6px;
+cursor:pointer;
+font-size:15px;
+}
+
+button:hover{
+background:#6aa56a;
+}
+
+/* SUCCESS MESSAGE */
+
+.success{
+display:none;
+background:#E6F6E6;
+padding:20px;
+border-radius:8px;
+margin-top:20px;
+color:#2F6B2F;
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+.navbar{
+flex-direction:column;
+align-items:flex-start;
+}
+
+.navlinks{
+margin-top:10px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<div class="navbar">
+
+<div class="logo">🐾 Paws Haven</div>
+
+<div class="navlinks">
+
+<a href="pawshome.html">Home</a>
+<a href="pawsanimals.html">Animals</a>
+<a href="pawsadopt.html">Adopt</a>
+<a href="pawsdonate.html">Donate</a>
+<a href="pawsvolunteer.html">Volunteer</a>
+<a href="pawsgallery.html">Gallery</a>
+<a href="pawsabout.html">About</a>
+<a href="pawscontact.html">Contact</a>
+<a href="pawsaccount.html">Account</a>
+<a onclick="logout()">Logout</a>
+
+</div>
+
+</div>
+
+<!-- PAGE CONTENT -->
+
+<div class="container">
+
+<div class="form-box">
+
+<h2>Adoption Application</h2>
+
+<p>
+Thank you for choosing to adopt from Paws Haven. Please fill out the form below
+so our team can understand your living environment and help match you with
+the perfect pet.
+</p>
+
+<form onsubmit="submitForm(event)">
+
+<input type="text" id="name" placeholder="Full Name" required>
+
+<input type="email" id="email" placeholder="Email Address" required>
+
+<input type="tel" id="phone" placeholder="Phone Number" required>
+
+<input type="text" id="address" placeholder="Home Address" required>
+
+<select id="pet">
+<option value="">Select the Pet You Are Interested In</option>
+<option>Bella (Labrador Mix)</option>
+<option>Max (Golden Retriever)</option>
+<option>Luna (Rescue Cat)</option>
+<option>Charlie (Beagle)</option>
+</select>
+
+<select id="home">
+<option value="">Living Environment</option>
+<option>House with Yard</option>
+<option>House without Yard</option>
+<option>Apartment</option>
+<option>Farm / Large Property</option>
+</select>
+
+<select id="experience">
+<option value="">Previous Pet Experience</option>
+<option>First time pet owner</option>
+<option>Owned pets before</option>
+<option>Currently own pets</option>
+</select>
+
+<textarea id="message" rows="4" placeholder="Why would you like to adopt this pet?"></textarea>
+
+<button type="submit">Submit Adoption Request</button>
+
+</form>
+
+<div class="success" id="successMsg">
+
+<b>Application Submitted!</b><br><br>
+
+Thank you for applying to adopt a pet from Paws Haven.  
+Our team will review your application and contact you soon.
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+/* LOGIN PROTECTION */
+
+if(localStorage.getItem("pawsLoggedIn")!=="true"){
+window.location.href="pawslogin.html";
+}
+
+/* FORM SUBMISSION */
+
+function submitForm(event){
+
+event.preventDefault();
+
+document.getElementById("successMsg").style.display="block";
+
+window.scrollTo({
+top:document.body.scrollHeight,
+behavior:"smooth"
+});
+
+}
+
+/* LOGOUT */
+
+function logout(){
+
+localStorage.removeItem("pawsLoggedIn");
+
+alert("You have been logged out.");
+
+window.location.href="pawslogin.html";
+
+}
+
+</script>
+
+</body>
+
+</html>
+

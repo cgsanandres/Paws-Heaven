@@ -1,0 +1,269 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Paws Haven | Gallery</title>
+
+<style>
+
+*{
+font-family:Arial;
+box-sizing:border-box;
+}
+
+body{
+margin:0;
+background:#FFF8F0;
+color:#4B3A2F;
+}
+
+/* NAVBAR */
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 30px;
+background:#7FB77E;
+color:white;
+flex-wrap:wrap;
+}
+
+.logo{
+font-size:22px;
+font-weight:bold;
+}
+
+.navlinks a{
+margin:0 10px;
+text-decoration:none;
+color:white;
+font-size:14px;
+cursor:pointer;
+}
+
+.navlinks a:hover{
+text-decoration:underline;
+}
+
+/* PAGE */
+
+.container{
+max-width:1100px;
+margin:auto;
+padding:40px 20px;
+text-align:center;
+}
+
+.container h1{
+color:#7FB77E;
+margin-bottom:10px;
+}
+
+/* GALLERY GRID */
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+margin-top:30px;
+}
+
+.photo-card{
+background:white;
+border-radius:10px;
+overflow:hidden;
+box-shadow:0 4px 15px rgba(0,0,0,0.15);
+cursor:pointer;
+}
+
+.photo-card img{
+width:100%;
+height:180px;
+object-fit:cover;
+}
+
+.photo-card p{
+padding:10px;
+font-size:14px;
+}
+
+/* MODAL */
+
+.modal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.8);
+justify-content:center;
+align-items:center;
+z-index:10;
+}
+
+.modal img{
+max-width:90%;
+max-height:80%;
+border-radius:10px;
+}
+
+.close{
+position:absolute;
+top:20px;
+right:30px;
+font-size:28px;
+color:white;
+cursor:pointer;
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+.navbar{
+flex-direction:column;
+align-items:flex-start;
+}
+
+.navlinks{
+margin-top:10px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<div class="navbar">
+
+<div class="logo">🐾 Paws Haven</div>
+
+<div class="navlinks">
+
+<a href="pawshome.html">Home</a>
+<a href="pawsanimals.html">Animals</a>
+<a href="pawsadopt.html">Adopt</a>
+<a href="pawsdonate.html">Donate</a>
+<a href="pawsvolunteer.html">Volunteer</a>
+<a href="pawsgallery.html">Gallery</a>
+<a href="pawsabout.html">About</a>
+<a href="pawscontact.html">Contact</a>
+<a href="pawsaccount.html">Account</a>
+<a onclick="logout()">Logout</a>
+
+</div>
+
+</div>
+
+<!-- PAGE CONTENT -->
+
+<div class="container">
+
+<h1>Rescue Moments Gallery</h1>
+
+<p>
+A collection of heartwarming moments from our rescue missions,
+volunteer work, and successful adoptions.
+</p>
+
+<div class="gallery">
+
+<div class="photo-card" onclick="openModal(this)">
+<img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e">
+<p>Bella enjoying her first day at the shelter.</p>
+</div>
+
+<div class="photo-card" onclick="openModal(this)">
+<img src="https://images.unsplash.com/photo-1517423440428-a5a00ad493e8">
+<p>Max during a volunteer walking session.</p>
+</div>
+
+<div class="photo-card" onclick="openModal(this)">
+<img src="https://images.unsplash.com/photo-1598137265838-1d6a3c80d7c2">
+<p>Luna relaxing in a warm sunny window.</p>
+</div>
+
+<div class="photo-card" onclick="openModal(this)">
+<img src="https://images.unsplash.com/photo-1507149833265-60c372daea22">
+<p>Charlie enjoying playtime in the yard.</p>
+</div>
+
+<div class="photo-card" onclick="openModal(this)">
+<img src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131">
+<p>Oliver the kitten discovering new toys.</p>
+</div>
+
+<div class="photo-card" onclick="openModal(this)">
+<img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b">
+<p>A happy adoption day with a new family.</p>
+</div>
+
+</div>
+
+</div>
+
+<!-- IMAGE MODAL -->
+
+<div class="modal" id="modal">
+
+<span class="close" onclick="closeModal()">✖</span>
+
+<img id="modalImg">
+
+</div>
+
+<script>
+
+/* LOGIN PROTECTION */
+
+if(localStorage.getItem("pawsLoggedIn")!=="true"){
+window.location.href="pawslogin.html";
+}
+
+/* OPEN MODAL */
+
+function openModal(card){
+
+let img=card.querySelector("img").src;
+
+document.getElementById("modalImg").src=img;
+
+document.getElementById("modal").style.display="flex";
+
+}
+
+/* CLOSE MODAL */
+
+function closeModal(){
+document.getElementById("modal").style.display="none";
+}
+
+/* LOGOUT */
+
+function logout(){
+
+localStorage.removeItem("pawsLoggedIn");
+
+alert("You have been logged out.");
+
+window.location.href="pawslogin.html";
+
+}
+
+</script>
+
+</body>
+
+</html>

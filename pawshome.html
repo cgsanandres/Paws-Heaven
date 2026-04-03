@@ -1,0 +1,368 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Paws Haven | Home</title>
+
+<style>
+
+*{
+font-family:Arial;
+box-sizing:border-box;
+}
+
+body{
+margin:0;
+background:#FFF8F0;
+color:#4B3A2F;
+}
+
+/* NAVBAR */
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 30px;
+background:#7FB77E;
+color:white;
+flex-wrap:wrap;
+}
+
+.logo{
+font-size:22px;
+font-weight:bold;
+}
+
+.navlinks a{
+margin:0 10px;
+text-decoration:none;
+color:white;
+font-size:14px;
+cursor:pointer;
+}
+
+.navlinks a:hover{
+text-decoration:underline;
+}
+
+/* HERO */
+
+.hero{
+height:420px;
+background-image:url("https://images.unsplash.com/photo-1558788353-f76d92427f16");
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:white;
+padding:20px;
+}
+
+.hero-box{
+background:rgba(0,0,0,0.45);
+padding:35px;
+border-radius:10px;
+max-width:600px;
+}
+
+.hero h1{
+margin-bottom:10px;
+font-size:34px;
+}
+
+.hero button{
+margin-top:15px;
+padding:12px 20px;
+border:none;
+background:#7FB77E;
+color:white;
+border-radius:6px;
+cursor:pointer;
+}
+
+.hero button:hover{
+background:#6aa56a;
+}
+
+/* CONTAINER */
+
+.container{
+max-width:1100px;
+margin:auto;
+padding:40px 20px;
+}
+
+/* FEATURED PETS */
+
+.pets{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+margin-top:20px;
+}
+
+.pet-card{
+background:white;
+border-radius:10px;
+box-shadow:0 4px 15px rgba(0,0,0,0.15);
+overflow:hidden;
+text-align:center;
+}
+
+.pet-card img{
+width:100%;
+height:180px;
+object-fit:cover;
+}
+
+.pet-card h3{
+margin:10px 0;
+color:#7FB77E;
+}
+
+.pet-card p{
+font-size:14px;
+padding:0 10px 15px;
+}
+
+.pet-card button{
+margin-bottom:15px;
+padding:10px 15px;
+border:none;
+background:#7FB77E;
+color:white;
+border-radius:5px;
+cursor:pointer;
+}
+
+/* MISSION */
+
+.mission{
+background:white;
+padding:30px;
+border-radius:10px;
+box-shadow:0 4px 15px rgba(0,0,0,0.15);
+margin-top:40px;
+text-align:center;
+}
+
+/* STATS */
+
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:20px;
+margin-top:30px;
+}
+
+.stat{
+background:#F5E6D3;
+padding:25px;
+border-radius:10px;
+text-align:center;
+}
+
+.stat h2{
+color:#7FB77E;
+}
+
+/* CTA */
+
+.cta{
+margin-top:40px;
+text-align:center;
+}
+
+.cta button{
+padding:14px 22px;
+margin:10px;
+border:none;
+background:#7FB77E;
+color:white;
+border-radius:6px;
+cursor:pointer;
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+.navbar{
+flex-direction:column;
+align-items:flex-start;
+}
+
+.navlinks{
+margin-top:10px;
+}
+
+.hero{
+height:360px;
+}
+
+.hero h1{
+font-size:26px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<div class="navbar">
+
+<div class="logo">🐾 Paws Haven</div>
+
+<div class="navlinks">
+<a href="pawshome.html">Home</a>
+<a href="pawsanimals.html">Animals</a>
+<a href="pawsadopt.html">Adopt</a>
+<a href="pawsdonate.html">Donate</a>
+<a href="pawsvolunteer.html">Volunteer</a>
+<a href="pawsgallery.html">Gallery</a>
+<a href="pawsabout.html">About</a>
+<a href="pawscontact.html">Contact</a>
+<a href="pawsaccount.html">Account</a>
+<a onclick="logout()">Logout</a>
+</div>
+
+</div>
+
+<!-- HERO -->
+
+<div class="hero">
+
+<div class="hero-box">
+
+<h1>Give a Loving Home to a Rescue Pet</h1>
+
+<p>Thousands of animals are waiting for someone like you.</p>
+
+<button onclick="location.href='pawsanimals.html'">
+View Adoptable Pets
+</button>
+
+</div>
+
+</div>
+
+<!-- FEATURED PETS -->
+
+<div class="container">
+
+<h2>Featured Pets</h2>
+
+<div class="pets">
+
+<div class="pet-card">
+<img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e">
+<h3>Bella</h3>
+<p>2 year old Labrador mix who loves playing and meeting new friends.</p>
+<button onclick="location.href='pawsadopt.html'">Adopt Me</button>
+</div>
+
+<div class="pet-card">
+<img src="https://images.unsplash.com/photo-1517423440428-a5a00ad493e8">
+<h3>Max</h3>
+<p>Friendly and energetic companion who enjoys walks and cuddles.</p>
+<button onclick="location.href='pawsadopt.html'">Adopt Me</button>
+</div>
+
+<div class="pet-card">
+<img src="https://images.unsplash.com/photo-1598137265838-1d6a3c80d7c2">
+<h3>Luna</h3>
+<p>Gentle rescue cat who enjoys quiet spaces and warm sunlight.</p>
+<button onclick="location.href='pawsadopt.html'">Adopt Me</button>
+</div>
+
+</div>
+
+<!-- MISSION -->
+
+<div class="mission">
+
+<h2>Our Mission</h2>
+
+<p>
+Paws Haven is dedicated to rescuing abandoned and neglected animals,
+providing them with proper care, and helping them find loving
+forever homes. Our shelter works with volunteers, veterinarians,
+and community supporters to give every rescued pet a second chance
+at life.
+</p>
+
+</div>
+
+<!-- IMPACT STATS -->
+
+<div class="stats">
+
+<div class="stat">
+<h2>1200+</h2>
+<p>Animals Rescued</p>
+</div>
+
+<div class="stat">
+<h2>950+</h2>
+<p>Successful Adoptions</p>
+</div>
+
+<div class="stat">
+<h2>60+</h2>
+<p>Active Volunteers</p>
+</div>
+
+<div class="stat">
+<h2>10+</h2>
+<p>Years Helping Animals</p>
+</div>
+
+</div>
+
+<!-- CALL TO ACTION -->
+
+<div class="cta">
+
+<h2>Help Us Save More Animals</h2>
+
+<button onclick="location.href='pawsadopt.html'">Adopt a Pet</button>
+<button onclick="location.href='pawsdonate.html'">Donate</button>
+<button onclick="location.href='pawsvolunteer.html'">Volunteer</button>
+
+</div>
+
+</div>
+
+<script>
+
+/* LOGIN CHECK */
+
+if(localStorage.getItem("pawsLoggedIn")!=="true"){
+window.location.href="pawslogin.html";
+}
+
+/* LOGOUT */
+
+function logout(){
+localStorage.removeItem("pawsLoggedIn");
+alert("You have been logged out.");
+window.location.href="pawslogin.html";
+}
+
+</script>
+
+</body>
+</html>
