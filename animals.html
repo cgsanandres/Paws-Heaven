@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adopt | Paws Haven</title>
+    <title>Adoptable Animals | Paws Haven</title>
     <!-- Matching Homepage Fonts -->
     <link href="https://googleapis.com" rel="stylesheet">
     <style>
@@ -82,7 +82,7 @@
             border-radius: 5px;
         }
 
-        /* HERO - MINI STYLE */
+        /* MINI HERO */
         .hero-mini {
             height: 40vh;
             background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), 
@@ -96,70 +96,115 @@
             color: var(--white);
         }
 
-        .container { max-width: 900px; margin: auto; padding: 40px 20px; }
-
-        /* STEPS GUIDE */
-        .steps-container {
-            display: flex; justify-content: space-between; 
-            margin: -60px auto 40px;
-            background: var(--white); padding: 30px; border-radius: 15px; 
+        /* FILTER BAR - MATCHES HOMEPAGE DESIGN */
+        .filter-bar {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 15px;
+            margin: -40px auto 40px;
+            max-width: 1000px;
             box-shadow: var(--shadow);
-            position: relative; z-index: 10;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 10;
         }
-        .step { text-align: center; flex: 1; font-size: 12px; font-weight: 700; color: #aaa; text-transform: uppercase; }
-        .step.active { color: var(--primary); }
-        .step-num { 
-            width: 35px; height: 35px; background: #eee; border-radius: 50%; 
-            display: flex; align-items: center; justify-content: center; 
-            margin: 0 auto 8px; color: white;
-        }
-        .step.active .step-num { background: var(--primary); }
 
-        /* FORM CARD */
-        .form-card {
-            background: var(--white); padding: 45px; border-radius: 20px;
+        .filter-bar input, .filter-bar select {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        .filter-bar input:focus {
+            border-color: var(--primary);
+        }
+
+        /* ANIMALS GRID */
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .pets-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .pet-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
             box-shadow: var(--shadow);
-        }
-        .form-card h2 { color: var(--primary-dark); margin-bottom: 10px; }
-        .form-section-title { 
-            font-size: 12px; font-weight: 700; text-transform: uppercase; 
-            color: var(--secondary); margin-top: 30px; margin-bottom: 15px;
-            letter-spacing: 1px; border-bottom: 2px solid var(--accent); padding-bottom: 5px;
+            position: relative;
+            cursor: pointer;
         }
 
-        input, select, textarea {
-            width: 100%; padding: 14px; margin: 10px 0;
-            border-radius: 10px; border: 1px solid #ddd; background: #fdfdfd;
-            font-size: 14px;
+        .pet-card:hover {
+            transform: translateY(-10px);
         }
-        
-        input:focus, select:focus, textarea:focus {
-            border-color: var(--primary); outline: none;
-            box-shadow: 0 0 0 3px rgba(88, 129, 87, 0.1);
-        }
-        
-        .checkbox-group { display: flex; align-items: flex-start; gap: 12px; margin: 20px 0; font-size: 13px; }
-        .checkbox-group input { width: auto; margin-top: 4px; }
 
-        .btn-submit {
-            width: 100%; padding: 16px; border: none; background: var(--primary);
-            color: white; border-radius: 50px; font-weight: 700; cursor: pointer;
-            font-size: 16px; margin-top: 20px;
-            box-shadow: 0 4px 15px rgba(88, 129, 87, 0.3);
+        .pet-tag {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--primary);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: bold;
+            z-index: 2;
         }
-        .btn-submit:hover { background: var(--primary-dark); transform: translateY(-2px); }
 
-        .success-box {
-            display: none; text-align: center; padding: 60px 40px;
-            background: var(--white); border-radius: 20px; box-shadow: var(--shadow);
+        .pet-img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
         }
-        .success-box h2 { color: var(--primary); }
+
+        .pet-info {
+            padding: 25px;
+        }
+
+        .pet-info h3 {
+            color: var(--primary-dark);
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .pet-meta {
+            display: flex;
+            gap: 15px;
+            font-size: 13px;
+            color: #777;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .btn-adopt {
+            width: 100%;
+            padding: 12px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .btn-adopt:hover {
+            background: var(--primary-dark);
+        }
 
         @media(max-width: 768px) {
             .hero-mini h1 { font-size: 2rem; }
-            .form-card { padding: 25px; }
-            .steps-container { padding: 15px; margin-top: -30px; }
-            .step-text { display: none; }
+            .filter-bar { margin: 20px; flex-direction: column; }
         }
     </style>
 </head>
@@ -168,7 +213,7 @@
 <nav class="navbar">
     <div class="logo">🐾 Paws Haven</div>
     <div class="navlinks">
-          <a href="index.html">Home</a>
+         <a href="index.html">Home</a>
         <a href="animals.html">Animals</a>
         <a href="adopt.html">Adopt</a>
         <a href="donate.html">Donate</a>
@@ -183,105 +228,108 @@
 
 <header class="hero-mini">
     <div>
-        <h1>Start the Journey</h1>
-        <p>Your forever friend is just a few steps away.</p>
+        <h1>Meet Our Residents</h1>
+        <p>Your future family member is waiting for you.</p>
     </div>
 </header>
 
 <div class="container">
-    <!-- Visual Progress Guide -->
-    <div class="steps-container">
-        <div class="step active"><div class="step-num">1</div><span class="step-text">Apply</span></div>
-        <div class="step"><div class="step-num">2</div><span class="step-text">Interview</span></div>
-        <div class="step"><div class="step-num">3</div><span class="step-text">Visit</span></div>
-        <div class="step"><div class="step-num">4</div><span class="step-text">Welcome Home</span></div>
+    <!-- SEARCH & FILTER -->
+    <div class="filter-bar">
+        <input type="text" id="petSearch" placeholder="Search by name or breed..." onkeyup="filterPets()">
+        <select id="typeFilter" onchange="filterPets()">
+            <option value="all">All Species</option>
+            <option value="dog">Dogs</option>
+            <option value="cat">Cats</option>
+        </select>
+        <select id="ageFilter" onchange="filterPets()">
+            <option value="all">All Ages</option>
+            <option value="Young">Young</option>
+            <option value="Adult">Adult</option>
+            <option value="Senior">Senior</option>
+        </select>
     </div>
 
-    <div class="form-card" id="formWrapper">
-        <h2>Adoption Application</h2>
-        <p>Tell us a bit about yourself and your home so we can find your perfect match.</p>
-
-        <form onsubmit="handleAdoption(event)">
-            
-            <div class="form-section-title">Personal Information</div>
-            <div style="display: flex; gap: 15px;">
-                <input type="text" placeholder="Full Name" required>
-                <input type="tel" placeholder="Phone Number" required>
+    <!-- PET GRID -->
+    <div class="pets-grid" id="petGrid">
+        <!-- Bella -->
+        <div class="pet-card" data-type="dog" data-age="Adult" data-name="Bella">
+            <span class="pet-tag">DOG</span>
+            <img src="images/labmix.jpeg" class="pet-img">
+            <div class="pet-info">
+                <h3>Bella</h3>
+                <div class="pet-meta">
+                    <span>Labrador Mix</span>
+                    <span>•</span>
+                    <span>2 Years</span>
+                </div>
+                <p>A friendly, high-energy companion who loves outdoor adventures and fetching.</p>
+                <button class="btn-adopt" onclick="location.href='adopt.html'">Adopt Me</button>
             </div>
-            <input type="email" placeholder="Email Address" required>
-            <input type="text" placeholder="Home Address" required>
+        </div>
 
-            <div class="form-section-title">Your New Companion</div>
-            <select required>
-                <option value="">Choose a Pet (Optional)</option>
-                <option>Bella (Labrador Mix)</option>
-                <option>Max (Golden Retriever)</option>
-                <option>Luna (Siamese Mix)</option>
-                <option>Charlie (Beagle)</option>
-                <option>General Interest / Not Sure Yet</option>
-            </select>
-
-            <div class="form-section-title">Living Environment</div>
-            <div style="display: flex; gap: 15px;">
-                <select required>
-                    <option value="">Home Type</option>
-                    <option>House with Yard</option>
-                    <option>House (No Yard)</option>
-                    <option>Apartment / Condo</option>
-                </select>
-                <select required>
-                    <option value="">Status</option>
-                    <option>Own</option>
-                    <option>Rent (Landlord Approved)</option>
-                </select>
+        <!-- Max -->
+        <div class="pet-card" data-type="dog" data-age="Adult" data-name="Max">
+            <span class="pet-tag">DOG</span>
+            <img src="images/gold_retriev.jpeg" class="pet-img">
+            <div class="pet-info">
+                <h3>Max</h3>
+                <div class="pet-meta">
+                    <span>Golden Retriever</span>
+                    <span>•</span>
+                    <span>4 Years</span>
+                </div>
+                <p>The ultimate family dog. Calm, gentle, and incredibly loyal to his humans.</p>
+                <button class="btn-adopt" onclick="location.href='adopt.html'">Adopt Me</button>
             </div>
-            
-            <select required>
-                <option value="">Other Pets at Home?</option>
-                <option>No other pets</option>
-                <option>Yes, dog(s)</option>
-                <option>Yes, cat(s)</option>
-                <option>Yes, both</option>
-            </select>
+        </div>
 
-            <textarea rows="4" placeholder="Briefly describe your daily routine and lifestyle..."></textarea>
-
-            <div class="checkbox-group">
-                <input type="checkbox" required>
-                <span>I agree to a home visit and understand that adoption involves an application fee.</span>
+        <!-- Luna -->
+        <div class="pet-card" data-type="cat" data-age="Young" data-name="Luna">
+            <span class="pet-tag">CAT</span>
+            <img src="images/siamese.jpeg" class="pet-img">
+            <div class="pet-info">
+                <h3>Luna</h3>
+                <div class="pet-meta">
+                    <span>Siamese Mix</span>
+                    <span>•</span>
+                    <span>1 Year</span>
+                </div>
+                <p>Enjoys quiet mornings and sunny spots. A very vocal and affectionate girl.</p>
+                <button class="btn-adopt" onclick="location.href='adopt.html'">Adopt Me</button>
             </div>
-
-            <button type="submit" class="btn-submit" id="submitBtn">Submit Application</button>
-        </form>
-    </div>
-
-    <!-- Success Feedback -->
-    <div class="success-box" id="successMsg">
-        <h2 style="font-size: 50px;">🐾</h2>
-        <h2>Application Submitted!</h2>
-        <p>Thank you for choosing to rescue. Our team will review your application and reach out to you within 3-5 business days.</p>
-        <button onclick="location.href='animals.html'" class="btn-submit" style="width: auto; padding: 12px 40px;">Browse More Animals</button>
+        </div>
     </div>
 </div>
 
 <script>
+    /* SESSION CHECK */
     if(localStorage.getItem("pawsLoggedIn") !== "true"){
         window.location.href = "login.html";
     }
 
-    function handleAdoption(event) {
-        event.preventDefault();
-        const btn = document.getElementById('submitBtn');
-        btn.innerText = "Sending Application...";
-        btn.style.opacity = "0.7";
-        btn.disabled = true;
+    /* SEARCH & FILTER LOGIC */
+    function filterPets() {
+        const searchInput = document.getElementById('petSearch').value.toLowerCase();
+        const typeFilter = document.getElementById('typeFilter').value;
+        const ageFilter = document.getElementById('ageFilter').value;
+        const cards = document.querySelectorAll('.pet-card');
 
-        setTimeout(() => {
-            document.getElementById('formWrapper').style.display = "none";
-            document.querySelector('.steps-container').style.display = "none";
-            document.getElementById('successMsg').style.display = "block";
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }, 1500);
+        cards.forEach(card => {
+            const name = card.getAttribute('data-name').toLowerCase();
+            const type = card.getAttribute('data-type');
+            const age = card.getAttribute('data-age');
+
+            const matchesSearch = name.includes(searchInput);
+            const matchesType = typeFilter === 'all' || type === typeFilter;
+            const matchesAge = ageFilter === 'all' || age === ageFilter;
+
+            if (matchesSearch && matchesType && matchesAge) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
     }
 
     function logout(){
